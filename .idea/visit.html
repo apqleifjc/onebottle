@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>오시는 길 | ONE BOTTLE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 헤더 -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo">ONE <span>BOTTLE</span></a>
+
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <label for="nav-toggle" class="nav-toggle__label" aria-label="메뉴 열기"><span></span></label>
+
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item"><a href="about.html">소개</a></li>
+          <li class="nav__item nav__item--has-sub">
+            <a href="menu.html">메뉴</a>
+            <div class="dropdown">
+              <div class="dropdown__group">
+                <a href="menu.html#drinks" class="dropdown__title">Drinks <span>음료</span></a>
+                <ul>
+                  <li><a href="menu.html#coffee">Coffee <span>커피</span></a></li>
+                  <li><a href="menu.html#latte">Latte <span>라떼</span></a></li>
+                  <li><a href="menu.html#tea">Tea <span>티</span></a></li>
+                  <li><a href="menu.html#smoothie">Smoothie <span>스무디</span></a></li>
+                  <li><a href="menu.html#frappe">Frappe <span>프라페</span></a></li>
+                  <li><a href="menu.html#ade">Ade <span>에이드</span></a></li>
+                </ul>
+              </div>
+              <div class="dropdown__group">
+                <a href="menu.html#dessert" class="dropdown__title">Dessert <span>디저트</span></a>
+                <ul>
+                  <li><a href="menu.html#bakery">Bakery <span>베이커리</span></a></li>
+                  <li><a href="menu.html#cake">Cake <span>케이크</span></a></li>
+                  <li><a href="menu.html#summer">Summer <span>빙수</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li class="nav__item"><a href="notice.html">공지사항</a></li>
+          <li class="nav__item"><a href="visit.html" class="is-active" aria-current="page">오시는 길</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">Visit</p>
+        <h1>ONE BOTTLE에서 만나요</h1>
+        <p class="page-hero__desc">안양예술공원 가는 길, 예술공원로에 있어요.</p>
+      </div>
+    </section>
+
+    <section class="section visit">
+      <div class="container visit__inner">
+        <div class="visit__info">
+          <dl class="info-list">
+            <div>
+              <dt>주소</dt>
+              <dd>경기 안양시 만안구 예술공원로 238</dd>
+            </div>
+            <div>
+              <dt>전화</dt>
+              <dd><a href="tel:031-471-3271">031-471-3271</a></dd>
+            </div>
+            <div>
+              <dt>영업시간</dt>
+              <dd>
+                <ul class="hours">
+                  <li data-day="1"><span>월</span><span>11:30 – 21:00</span></li>
+                  <li data-day="2"><span>화</span><span>11:30 – 18:00</span></li>
+                  <li data-day="3"><span>수</span><span>11:30 – 21:00</span></li>
+                  <li data-day="4"><span>목</span><span>11:30 – 21:00</span></li>
+                  <li data-day="5"><span>금</span><span>11:30 – 18:00</span></li>
+                  <li data-day="6"><span>토</span><span>11:00 – 19:30</span></li>
+                  <li data-day="0"><span>일</span><span>11:00 – 19:30</span></li>
+                </ul>
+              </dd>
+            </div>
+          </dl>
+
+          <div class="map-links">
+            <a href="https://naver.me/Fw7P3RqZ" class="btn btn--primary" target="_blank" rel="noopener">네이버 지도에서 보기</a>
+            <a href="https://map.kakao.com/?q=경기 안양시 만안구 예술공원로 238" class="btn btn--ghost" target="_blank" rel="noopener">카카오맵</a>
+          </div>
+        </div>
+
+        <div class="visit__map">
+          <!-- ▼ 지도 영역: 다른 지도 퍼가기 코드를 쓰려면 이 iframe을 통째로 바꾸세요 ▼ -->
+          <iframe
+            class="map-frame"
+            src="https://www.google.com/maps?q=경기+안양시+만안구+예술공원로+238&hl=ko&z=17&output=embed"
+            title="ONE BOTTLE 위치 지도"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen></iframe>
+          <!-- ▲ 지도 영역 끝 ▲ -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 오늘 요일 영업시간 강조 -->
+    <script>
+      try {
+        var today = document.querySelector('.hours li[data-day="' + new Date().getDay() + '"]');
+        if (today) today.classList.add('is-today');
+      } catch (e) {}
+    </script>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <a href="index.html" class="logo logo--light">ONE <span>BOTTLE</span></a>
+      <p>&copy; 2026 ONE BOTTLE. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

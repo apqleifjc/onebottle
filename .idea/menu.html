@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>메뉴 | ONE BOTTLE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-menu">
+
+  <!-- 헤더 -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo">ONE <span>BOTTLE</span></a>
+
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <label for="nav-toggle" class="nav-toggle__label" aria-label="메뉴 열기"><span></span></label>
+
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item"><a href="about.html">소개</a></li>
+          <li class="nav__item nav__item--has-sub">
+            <a href="menu.html" class="is-active" aria-current="page">메뉴</a>
+            <div class="dropdown">
+              <div class="dropdown__group">
+                <a href="menu.html#drinks" class="dropdown__title">Drinks <span>음료</span></a>
+                <ul>
+                  <li><a href="menu.html#coffee">Coffee <span>커피</span></a></li>
+                  <li><a href="menu.html#latte">Latte <span>라떼</span></a></li>
+                  <li><a href="menu.html#tea">Tea <span>티</span></a></li>
+                  <li><a href="menu.html#smoothie">Smoothie <span>스무디</span></a></li>
+                  <li><a href="menu.html#frappe">Frappe <span>프라페</span></a></li>
+                  <li><a href="menu.html#ade">Ade <span>에이드</span></a></li>
+                </ul>
+              </div>
+              <div class="dropdown__group">
+                <a href="menu.html#dessert" class="dropdown__title">Dessert <span>디저트</span></a>
+                <ul>
+                  <li><a href="menu.html#bakery">Bakery <span>베이커리</span></a></li>
+                  <li><a href="menu.html#cake">Cake <span>케이크</span></a></li>
+                  <li><a href="menu.html#summer">Summer <span>빙수</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li class="nav__item"><a href="notice.html">공지사항</a></li>
+          <li class="nav__item"><a href="visit.html">오시는 길</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">Menu</p>
+        <h1>ONE BOTTLE 메뉴</h1>
+        <p class="page-hero__desc">메뉴를 누르면 가격과 성분 정보를 볼 수 있어요.</p>
+      </div>
+    </section>
+
+    <!-- 분류 선택 탭 (menu.js가 채워 넣음) -->
+    <nav class="menu-filter" id="menu-filter" aria-label="메뉴 분류">
+      <div class="container">
+        <div class="menu-filter__major" id="filter-major"></div>
+        <div class="menu-filter__sub" id="filter-sub"></div>
+      </div>
+    </nav>
+
+    <section class="section menu">
+      <div class="container">
+        <!-- 메뉴 카드 목록 (menu.js가 채워 넣음) -->
+        <div id="menu-list"></div>
+        <p class="menu__note">* 가격 단위: 원 / 성분표는 임시 정보이며 실제와 다를 수 있습니다.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- 메뉴 상세 팝업 -->
+  <dialog class="menu-modal" id="menu-modal" aria-labelledby="modal-name">
+    <button class="menu-modal__close" id="modal-close" aria-label="닫기">&times;</button>
+    <div class="menu-modal__photo" id="modal-photo"></div>
+    <div class="menu-modal__body">
+      <p class="menu-modal__cat" id="modal-cat"></p>
+      <h2 class="menu-modal__name" id="modal-name"></h2>
+      <p class="menu-modal__note" id="modal-note"></p>
+      <p class="menu-modal__price" id="modal-price"></p>
+
+      <h3 class="menu-modal__label">성분표 <small>(임시)</small></h3>
+      <table class="nutrition">
+        <tbody id="modal-nutrition"></tbody>
+      </table>
+    </div>
+  </dialog>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <a href="index.html" class="logo logo--light">ONE <span>BOTTLE</span></a>
+      <p>&copy; 2026 ONE BOTTLE. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="menu.js"></script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>보틀 커피 | ONE BOTTLE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 헤더 -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo">ONE <span>BOTTLE</span></a>
+
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <label for="nav-toggle" class="nav-toggle__label" aria-label="메뉴 열기"><span></span></label>
+
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item"><a href="about.html">소개</a></li>
+          <li class="nav__item nav__item--has-sub">
+            <a href="menu.html">메뉴</a>
+            <div class="dropdown">
+              <div class="dropdown__group">
+                <a href="menu.html#drinks" class="dropdown__title">Drinks <span>음료</span></a>
+                <ul>
+                  <li><a href="menu.html#coffee">Coffee <span>커피</span></a></li>
+                  <li><a href="menu.html#latte">Latte <span>라떼</span></a></li>
+                  <li><a href="menu.html#tea">Tea <span>티</span></a></li>
+                  <li><a href="menu.html#smoothie">Smoothie <span>스무디</span></a></li>
+                  <li><a href="menu.html#frappe">Frappe <span>프라페</span></a></li>
+                  <li><a href="menu.html#ade">Ade <span>에이드</span></a></li>
+                </ul>
+              </div>
+              <div class="dropdown__group">
+                <a href="menu.html#dessert" class="dropdown__title">Dessert <span>디저트</span></a>
+                <ul>
+                  <li><a href="menu.html#bakery">Bakery <span>베이커리</span></a></li>
+                  <li><a href="menu.html#cake">Cake <span>케이크</span></a></li>
+                  <li><a href="menu.html#summer">Summer <span>빙수</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li class="nav__item"><a href="bottle.html" class="is-active" aria-current="page">보틀 커피</a></li>
+          <li class="nav__item"><a href="visit.html">오시는 길</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">Signature</p>
+        <h1>ONE BOTTLE 시그니처</h1>
+        <p class="page-hero__desc">집에서도, 사무실에서도 즐기는 한 병의 커피.</p>
+      </div>
+    </section>
+
+    <section class="section bottle-section">
+      <div class="container">
+        <div class="cards">
+          <article class="card">
+            <div class="card__top card__top--dark">500ml</div>
+            <div class="card__body">
+              <h3>클래식 콜드브루</h3>
+              <p>초콜릿과 견과류의 묵직한 바디감. 우유에 섞어도 좋아요.</p>
+              <span class="card__price">12,000원</span>
+            </div>
+          </article>
+          <article class="card card--featured">
+            <span class="badge">BEST</span>
+            <div class="card__top card__top--milk">500ml</div>
+            <div class="card__body">
+              <h3>보틀 밀크 라떼</h3>
+              <p>콜드브루와 신선한 우유를 황금 비율로 블렌딩했습니다.</p>
+              <span class="card__price">13,500원</span>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card__top card__top--fruit">500ml</div>
+            <div class="card__body">
+              <h3>시즌 싱글오리진</h3>
+              <p>계절마다 바뀌는 산뜻하고 과일향 가득한 콜드브루.</p>
+              <span class="card__price">14,000원</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <a href="index.html" class="logo logo--light">ONE <span>BOTTLE</span></a>
+      <p>&copy; 2026 ONE BOTTLE. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
