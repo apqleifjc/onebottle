@@ -1421,3 +1421,80 @@ ul {
     text-align: center;
   }
 }
+
+/* =========================================
+   오류 페이지 (404.html)
+   ========================================= */
+.error-page {
+  padding: calc(var(--header-h) + 56px) 0 96px;
+  background: linear-gradient(180deg, #efe4d5 0%, var(--color-bg) 100%);
+}
+
+.error-page__inner {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  align-items: center;
+  gap: 48px;
+}
+
+.error-page__visual {
+  display: flex;
+  justify-content: center;
+}
+
+/* 빈 병: 바닥에 커피가 조금만 남은 모습 */
+.bottle--empty .bottle__liquid {
+  height: 9%;
+}
+
+.bottle--empty .bottle__label strong {
+  font-size: 1.3rem;
+}
+
+.error-page__text h1 {
+  font-size: clamp(1.9rem, 4.5vw, 2.8rem);
+  color: var(--color-dark);
+  line-height: 1.3;
+}
+
+.error-page__desc {
+  margin-top: 14px;
+  color: var(--color-muted);
+}
+
+.error-page__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.error-page__help {
+  margin-top: 28px;
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
+
+.error-page__help a {
+  color: var(--color-brown);
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 720px) {
+  .error-page__inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 32px;
+  }
+
+  .error-page__buttons {
+    justify-content: center;
+  }
+
+  .error-page .bottle__body {
+    width: 120px;
+    height: 220px;
+  }
+}

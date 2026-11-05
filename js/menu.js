@@ -267,12 +267,29 @@ function closeModal() {
   else $modal.removeAttribute('open');
 }
 
-$list.addEventListener('click', e => {
-  const card = e.target.closest('.menu-card');
-  if (card) openModal(card.dataset.id);
-});
-document.getElementById('modal-close').addEventListener('click', closeModal);
-$modal.addEventListener('click', e => { if (e.target === $modal) closeModal(); }); // 바깥 클릭 시 닫기
+/* =========================================
+   시작
+   - 메뉴를 그리다가 예기치 않은 오류가 나면 빈 화면 대신
+     오류 안내 페이지(404.html?error=menu)로 이동합니다.
+   ========================================= */
+function goErrorPage(err) {
+  console.error('[menu] 오류가 발생해 오류 페이지로 이동합니다.', err);
+  location.replace('404.html?error=menu');
+}
 
-window.addEventListener('hashchange', () => render(true));
-render(location.hash.length > 1);
+try {
+  $list.addEventListener('click', e => {
+    const card = e.target.closest('.menu-card');
+    if (!card) return;
+    try { openModal(card.dataset.id); } catch (err) { goErrorPage(err); }
+  });
+  document.getElementById('modal-close').addEventListener('click', closeModal);
+  $modal.addEventListener('click', e => { if (e.target === $modal) closeModal(); }); // 바깥 클릭 시 닫기
+
+  window.addEventListener('hashchange', () => {
+    try { render(true); } catch (err) { goErrorPage(err); }
+  });
+  render(location.hash.length > 1);
+} catch (err) {
+  goErrorPage(err);
+}

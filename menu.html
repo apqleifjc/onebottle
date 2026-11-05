@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>보틀 커피 | ONE BOTTLE</title>
+  <title>메뉴 | ONE BOTTLE</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="page-menu">
 
   <!-- 헤더 -->
   <header class="header">
@@ -23,7 +23,7 @@
         <ul class="nav__list">
           <li class="nav__item"><a href="about.html">소개</a></li>
           <li class="nav__item nav__item--has-sub">
-            <a href="menu.html">메뉴</a>
+            <a href="menu.html" class="is-active" aria-current="page">메뉴</a>
             <div class="dropdown">
               <div class="dropdown__group">
                 <a href="menu.html#drinks" class="dropdown__title">Drinks <span>음료</span></a>
@@ -46,7 +46,7 @@
               </div>
             </div>
           </li>
-          <li class="nav__item"><a href="bottle.html" class="is-active" aria-current="page">보틀 커피</a></li>
+          <li class="nav__item"><a href="notice.html">공지사항</a></li>
           <li class="nav__item"><a href="visit.html">오시는 길</a></li>
         </ul>
       </nav>
@@ -56,44 +56,45 @@
   <main>
     <section class="page-hero">
       <div class="container">
-        <p class="eyebrow">Signature</p>
-        <h1>ONE BOTTLE 시그니처</h1>
-        <p class="page-hero__desc">집에서도, 사무실에서도 즐기는 한 병의 커피.</p>
+        <p class="eyebrow">Menu</p>
+        <h1>ONE BOTTLE 메뉴</h1>
+        <p class="page-hero__desc">메뉴를 누르면 가격과 성분 정보를 볼 수 있어요.</p>
       </div>
     </section>
 
-    <section class="section bottle-section">
+    <!-- 분류 선택 탭 (menu.js가 채워 넣음) -->
+    <nav class="menu-filter" id="menu-filter" aria-label="메뉴 분류">
       <div class="container">
-        <div class="cards">
-          <article class="card">
-            <div class="card__top card__top--dark">500ml</div>
-            <div class="card__body">
-              <h3>클래식 콜드브루</h3>
-              <p>초콜릿과 견과류의 묵직한 바디감. 우유에 섞어도 좋아요.</p>
-              <span class="card__price">12,000원</span>
-            </div>
-          </article>
-          <article class="card card--featured">
-            <span class="badge">BEST</span>
-            <div class="card__top card__top--milk">500ml</div>
-            <div class="card__body">
-              <h3>보틀 밀크 라떼</h3>
-              <p>콜드브루와 신선한 우유를 황금 비율로 블렌딩했습니다.</p>
-              <span class="card__price">13,500원</span>
-            </div>
-          </article>
-          <article class="card">
-            <div class="card__top card__top--fruit">500ml</div>
-            <div class="card__body">
-              <h3>시즌 싱글오리진</h3>
-              <p>계절마다 바뀌는 산뜻하고 과일향 가득한 콜드브루.</p>
-              <span class="card__price">14,000원</span>
-            </div>
-          </article>
-        </div>
+        <div class="menu-filter__major" id="filter-major"></div>
+        <div class="menu-filter__sub" id="filter-sub"></div>
+      </div>
+    </nav>
+
+    <section class="section menu">
+      <div class="container">
+        <!-- 메뉴 카드 목록 (menu.js가 채워 넣음) -->
+        <div id="menu-list"></div>
+        <p class="menu__note">* 가격 단위: 원 / 성분표는 임시 정보이며 실제와 다를 수 있습니다.</p>
       </div>
     </section>
   </main>
+
+  <!-- 메뉴 상세 팝업 -->
+  <dialog class="menu-modal" id="menu-modal" aria-labelledby="modal-name">
+    <button class="menu-modal__close" id="modal-close" aria-label="닫기">&times;</button>
+    <div class="menu-modal__photo" id="modal-photo"></div>
+    <div class="menu-modal__body">
+      <p class="menu-modal__cat" id="modal-cat"></p>
+      <h2 class="menu-modal__name" id="modal-name"></h2>
+      <p class="menu-modal__note" id="modal-note"></p>
+      <p class="menu-modal__price" id="modal-price"></p>
+
+      <h3 class="menu-modal__label">성분표 <small>(임시)</small></h3>
+      <table class="nutrition">
+        <tbody id="modal-nutrition"></tbody>
+      </table>
+    </div>
+  </dialog>
 
   <footer class="footer">
     <div class="container footer__inner">
@@ -102,5 +103,6 @@
     </div>
   </footer>
 
+  <script src="js/menu.js"></script>
 </body>
 </html>
