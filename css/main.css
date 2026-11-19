@@ -1,0 +1,394 @@
+/* ==========================================================================
+   ONE BOTTLE — 공통 & 메인(대문) 스타일
+   ========================================================================== */
+
+:root {
+  --ink: #14110e;
+  --paper: #f6f1ea;
+  --paper-dim: rgba(246, 241, 234, 0.72);
+  --amber: #f0b45c;
+  --header-h: 84px;
+  --gutter: clamp(16px, 4vw, 56px);
+  --font-ko: "Pretendard", "Apple SD Gothic Neo", "Noto Sans KR", system-ui, sans-serif;
+  --font-en: "Jost", "Pretendard", system-ui, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-ko);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* 대문은 한 화면에 고정 — 스크롤 없음 */
+.page-home {
+  overflow: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   Header / 상단 메뉴
+   -------------------------------------------------------------------------- */
+
+.site-header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 10;
+  height: var(--header-h);
+  padding: 0 var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  background: linear-gradient(to bottom, rgba(10, 8, 6, 0.7) 0%, rgba(10, 8, 6, 0.35) 60%, rgba(10, 8, 6, 0) 100%);
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.45);
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.brand__name {
+  font-family: var(--font-en);
+  font-weight: 600;
+  font-size: 22px;
+  letter-spacing: 0.14em;
+}
+
+.brand__sub {
+  margin-top: 6px;
+  font-family: var(--font-en);
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--paper-dim);
+}
+
+.gnb ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: clamp(18px, 3.4vw, 48px);
+}
+
+.gnb a {
+  position: relative;
+  display: inline-block;
+  padding: 8px 0;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  transition: color 0.25s ease;
+}
+
+.gnb a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 2px;
+  height: 1px;
+  background: var(--amber);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.gnb a:hover,
+.gnb a:focus-visible,
+.gnb a[aria-current="page"] {
+  color: var(--amber);
+}
+
+.gnb a:hover::after,
+.gnb a:focus-visible::after,
+.gnb a[aria-current="page"]::after {
+  transform: scaleX(1);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   Hero / 슬라이드
+   -------------------------------------------------------------------------- */
+
+.hero {
+  position: relative;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hero__slides,
+.slide,
+.hero__shade {
+  position: absolute;
+  inset: 0;
+}
+
+.slide {
+  margin: 0;
+  opacity: 0;
+  transition: opacity 1.6s ease-in-out;
+}
+
+.slide.is-active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.1);
+  transition: transform 8s ease-out;
+  will-change: transform;
+}
+
+/* 천천히 줌아웃되는 켄번즈 효과 */
+.slide.is-active img {
+  transform: scale(1);
+}
+
+.hero__shade {
+  z-index: 2;
+  pointer-events: none;
+  background:
+    linear-gradient(to top, rgba(10, 8, 6, 0.78) 0%, rgba(10, 8, 6, 0.15) 45%, rgba(10, 8, 6, 0) 65%),
+    linear-gradient(to right, rgba(10, 8, 6, 0.45) 0%, rgba(10, 8, 6, 0) 55%);
+}
+
+.hero__copy {
+  position: absolute;
+  z-index: 3;
+  left: var(--gutter);
+  right: var(--gutter);
+  bottom: clamp(120px, 20vh, 200px);
+  max-width: 640px;
+}
+
+.hero__eyebrow {
+  margin: 0 0 18px;
+  font-family: var(--font-en);
+  font-size: 13px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+
+.hero__title {
+  margin: 0;
+  font-size: clamp(36px, 6vw, 72px);
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.hero__desc {
+  margin: 20px 0 0;
+  font-family: var(--font-en);
+  font-size: clamp(14px, 1.4vw, 17px);
+  letter-spacing: 0.12em;
+  color: var(--paper-dim);
+}
+
+.hero__footer {
+  position: absolute;
+  z-index: 3;
+  left: var(--gutter);
+  right: var(--gutter);
+  bottom: max(28px, env(safe-area-inset-bottom));
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(246, 241, 234, 0.2);
+}
+
+.hero__info {
+  font-style: normal;
+  font-size: 13px;
+  color: var(--paper-dim);
+}
+
+.hero__info a:hover {
+  color: var(--amber);
+}
+
+.hero__info .dot {
+  margin: 0 10px;
+}
+
+.hero__controls {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-shrink: 0;
+}
+
+.hero__count {
+  font-family: var(--font-en);
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  color: var(--paper-dim);
+  font-variant-numeric: tabular-nums;
+}
+
+.hero__count b {
+  font-weight: 500;
+  color: var(--paper);
+}
+
+.hero__dots {
+  display: flex;
+  gap: 8px;
+}
+
+.hero__dot {
+  position: relative;
+  width: 36px;
+  height: 20px;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.hero__dot::before,
+.hero__dot span {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 2px;
+  margin-top: -1px;
+  background: rgba(246, 241, 234, 0.3);
+}
+
+.hero__dot span {
+  background: var(--paper);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.hero__dot.is-done span {
+  transform: scaleX(1);
+}
+
+.hero__dot.is-active span {
+  animation: dot-progress var(--slide-ms, 6000ms) linear forwards;
+}
+
+.hero.is-paused .hero__dot.is-active span {
+  animation-play-state: paused;
+}
+
+@keyframes dot-progress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+/* --------------------------------------------------------------------------
+   반응형
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 640px) {
+  :root {
+    --header-h: 64px;
+  }
+
+  .brand__name {
+    font-size: 17px;
+    letter-spacing: 0.1em;
+  }
+
+  .brand__sub {
+    font-size: 9px;
+    margin-top: 5px;
+  }
+
+  .gnb a {
+    font-size: 14px;
+  }
+
+  .hero__copy {
+    bottom: 150px;
+  }
+
+  .hero__footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .hero__info .dot {
+    display: block;
+    height: 0;
+    overflow: hidden;
+  }
+
+  .hero__info a {
+    display: inline-block;
+    margin-top: 4px;
+  }
+
+  .hero__dot {
+    width: 28px;
+  }
+}
+
+@media (max-height: 520px) and (orientation: landscape) {
+  .hero__copy {
+    bottom: 96px;
+  }
+
+  .hero__eyebrow {
+    margin-bottom: 8px;
+  }
+
+  .hero__title {
+    font-size: clamp(28px, 5vw, 44px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slide {
+    transition-duration: 0.4s;
+  }
+
+  .slide img,
+  .slide.is-active img {
+    transform: none;
+    transition: none;
+  }
+}
