@@ -6,8 +6,15 @@ const CopyPlugin = require('copy-webpack-plugin');
 module.exports = merge(common, {
   mode: 'production',
   plugins: [
+    // 각 HTML에 <script>를 직접 넣어두었으므로 자동 삽입(inject)은 끔
     new HtmlWebpackPlugin({
       template: './index.html',
+      inject: false,
+    }),
+    new HtmlWebpackPlugin({
+      template: './menu.html',
+      filename: 'menu.html',
+      inject: false,
     }),
     new CopyPlugin({
       patterns: [
